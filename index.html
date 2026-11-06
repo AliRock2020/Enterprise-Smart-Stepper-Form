@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة الترشح والانتداب الداخلي | تسجيل الكوادر</title>
+  <!-- Bootstrap 5 RTL -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="py-4 py-md-5">
+
+  <div class="container" style="max-width: 820px;">
+    <!-- الترويسة العليا -->
+    <div class="text-center mb-4">
+      <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-3 p-2 mb-2">
+        <i class="bi bi-shield-lock-fill fs-4 px-1"></i>
+      </div>
+      <h4 class="fw-bold mb-1">استمارة الترشح للوظائف القيادية والإشرافية</h4>
+      <p class="text-muted small">يرجى استيفاء البيانات بدقة طبقاً لصحيفة الأحوال والملفات الرسمية</p>
+    </div>
+
+    <!-- البطاقة الرئيسية -->
+    <div class="wizard-card p-4 p-md-5">
+      <!-- شريط الخطوات (Stepper) -->
+      <div class="stepper-wrapper">
+        <div class="stepper-progress-line"></div>
+        <div class="stepper-progress-fill" id="progressFill"></div>
+
+        <div class="step-item active" data-step="1">
+          <div class="step-circle">1</div>
+          <div class="step-title">البيانات الأساسية</div>
+        </div>
+        <div class="step-item" data-step="2">
+          <div class="step-circle">2</div>
+          <div class="step-title">البيانات الوظيفية</div>
+        </div>
+        <div class="step-item" data-step="3">
+          <div class="step-circle">3</div>
+          <div class="step-title">المستندات الرسمية</div>
+        </div>
+        <div class="step-item" data-step="4">
+          <div class="step-circle">4</div>
+          <div class="step-title">المراجعة والاعتماد</div>
+        </div>
+      </div>
+
+      <form id="wizardForm" novalidate>
+        <!-- الخطوة 1: البيانات الأساسية -->
+        <div class="step-content active" id="step1">
+          <h5 class="fw-bold mb-3"><i class="bi bi-person-lines-fill text-primary me-2"></i>البيانات الشخصية والاتصال</h5>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label small fw-semibold">الاسم رباعياً <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="fullName" placeholder="مثال: أحمد عبد الله سالم علي" required>
+              <div class="invalid-feedback">يرجى إدخال الاسم بالكامل</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label small fw-semibold">الرقم القومي (14 رقم) <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="nationalId" maxlength="14" placeholder="290xxxxxxxxxxx" required>
+              <div class="invalid-feedback">الرقم القومي يجب أن يتكون من 14 رقماً</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label small fw-semibold">البريد الإلكتروني المعتمد <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="email" placeholder="user@domain.gov.eg" required>
+              <div class="invalid-feedback">يرجى إدخال بريد إلكتروني صحيح</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label small fw-semibold">رقم الهاتف المحمول <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control" id="phone" placeholder="01xxxxxxxxx" required>
+              <div class="invalid-feedback">يرجى كتابة رقم هاتف فعال</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- الخطوة 2: البيانات الوظيفية -->
+        <div class="step-content" id="step2">
+          <h5 class="fw-bold mb-3"><i class="bi bi-briefcase-fill text-primary me-2"></i>البيانات والدرجة الوظيفية الحالية</h5>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label small fw-semibold">جهة العمل الأصلية <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="orgName" placeholder="مثال: مصلحة الجمارك المصرية" required>
+              <div class="invalid-feedback">يرجى تحديد جهة العمل</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label small fw-semibold">الكود الوظيفي العام <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="empCode" placeholder="مثال: GOV-89410" required>
+              <div class="invalid-feedback">يرجى إدخال الكود الوظيفي</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label small fw-semibold">المجموعة النوعية / التخصص <span class="text-danger">*</span></label>
+              <select class="form-select" id="jobGroup" required>
+                <option value="">اختر التخصص...</option>
+                <option value="تكنولوجيا المعلومات وقواعد البيانات">تكنولوجيا المعلومات وقواعد البيانات</option>
+                <option value="الرقابة والتفتيش الجمركي">الرقابة والتفتيش الجمركي</option>
+                <option value="إدارة الموارد والتحليل الإحصائي">إدارة الموارد والتحليل الإحصائي</option>
+                <option value="الشؤون القانونية والمظالم">الشؤون القانونية والمظالم</option>
+              </select>
+              <div class="invalid-feedback">يرجى اختيار المجموعة النوعية</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label small fw-semibold">سنوات الخبرة في الوظيفة الحالية <span class="text-danger">*</span></label>
+              <input type="number" class="form-control" id="yearsExp" min="1" max="40" placeholder="مثال: 8" required>
+              <div class="invalid-feedback">يرجى إدخال سنوات الخبرة</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- الخطوة 3: المستندات الرسمية -->
+        <div class="step-content" id="step3">
+          <h5 class="fw-bold mb-3"><i class="bi bi-file-earmark-arrow-up-fill text-primary me-2"></i>تحميل المستندات والمرفقات المطلوبة</h5>
+          <p class="text-muted small">يرجى رفع بيان الحالة الوظيفية المعتمد وملف السيرة الذاتية (بصيغة PDF فقط - الحجم الأقصى 5 ميجابايت).</p>
+          
+          <div class="dropzone-area mb-3" id="dropzone">
+            <input type="file" id="fileInput" accept=".pdf" class="d-none">
+            <i class="bi bi-cloud-arrow-up text-primary fs-1 d-block mb-2"></i>
+            <span class="fw-bold text-dark d-block">اسحب الملف هنا أو اضغط للاختيار من جهازك</span>
+            <span class="text-muted small">الملفات المدعومة: PDF فقط (بحد أقصى 5MB)</span>
+          </div>
+
+          <div id="filePreviewList"></div>
+          <div id="fileUploadError" class="text-danger small d-none mt-2">
+            <i class="bi bi-exclamation-circle me-1"></i> يلزم إرفاق المستند الرسمي بصيغة PDF للمتابعة
+          </div>
+        </div>
+
+        <!-- الخطوة 4: المراجعة والاعتماد -->
+        <div class="step-content" id="step4">
+          <h5 class="fw-bold mb-3"><i class="bi bi-patch-check-fill text-success me-2"></i>المراجعة النهائية والتأكيد</h5>
+          <p class="text-muted small">يرجى التأكد من صحة البيانات المسجلة أدناه قبل إتمام التثبيت النهائي.</p>
+
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div class="review-group">
+                <span class="review-label">الاسم الكامل</span>
+                <span class="review-value" id="revFullName">-</span>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="review-group">
+                <span class="review-label">الرقم القومي</span>
+                <span class="review-value font-monospace" id="revNationalId">-</span>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="review-group">
+                <span class="review-label">البريد الإلكتروني / الهاتف</span>
+                <span class="review-value" id="revContact">-</span>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="review-group">
+                <span class="review-label">جهة العمل / الكود</span>
+                <span class="review-value" id="revOrg">-</span>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="review-group">
+                <span class="review-label">المجموعة النوعية والتخصص</span>
+                <span class="review-value" id="revJob">-</span>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="review-group">
+                <span class="review-label">المستند المرفق</span>
+                <span class="review-value text-primary" id="revFile">-</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-check mt-4">
+            <input class="form-check-input" type="checkbox" id="termsCheck" required>
+            <label class="form-check-label small" for="termsCheck">
+              أقر بأن كافة البيانات والمستندات المرفقة صحيحة ومطابقة للسجلات الرسمية وأتحمل المسؤولية القانونية حيال ذلك.
+            </label>
+            <div class="invalid-feedback">يلزم الإقرار بصحة البيانات قبل الإرسال</div>
+          </div>
+        </div>
+
+        <!-- أزرار التنقل السفلية -->
+        <div class="d-flex justify-content-between align-items-center mt-5 pt-3 border-top">
+          <button type="button" class="btn btn-outline-secondary px-4" id="prevBtn" disabled>
+            <i class="bi bi-arrow-right me-1"></i> السابق
+          </button>
+          
+          <button type="button" class="btn btn-primary px-4" id="nextBtn">
+            التالي <i class="bi bi-arrow-left ms-1"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- شاشة النجاح بعد الإرسال النهائي -->
+    <div class="wizard-card p-5 text-center mt-4 d-none" id="successState">
+      <div class="rounded-circle bg-success-subtle text-success d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 72px; height: 72px;">
+        <i class="bi bi-check2-all fs-1"></i>
+      </div>
+      <h4 class="fw-bold mb-2">تم تسجيل وقيد الطلب بنجاح</h4>
+      <p class="text-muted mb-3">تم إرسال الملف إلى لجنة الفحص الإلكتروني المركزية. رقم المتابعة المرجعي الخاص بك:</p>
+      <div class="d-inline-block bg-light border font-monospace px-4 py-2 rounded-3 fs-5 fw-bold text-dark mb-4" id="trackingCode">
+        APP-2026-9481
+      </div>
+      <div class="d-block">
+        <button class="btn btn-outline-primary btn-sm" onclick="location.reload();">
+          <i class="bi bi-arrow-clockwise me-1"></i> تقديم طلب جديد
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="wizard.js"></script>
+</body>
+</html>
